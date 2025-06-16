@@ -1,0 +1,2 @@
+# sensitive config
+src/main/resources/db.properties
