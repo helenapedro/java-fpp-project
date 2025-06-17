@@ -9,3 +9,20 @@ Use this command to run the programn:
 ✅ I have MigrationRunner.java to apply migrations
 ✅ Everything is working cleanly with db.properties
 
+
+Use Flyway SQL files to:
+Create tables and indexes
+Insert static or seed data (like sample users, default roles)
+Modify schema across project versions (e.g., adding columns)
+
+Use JDBC code when your app needs to:
+Insert data based on user input
+Query rows and display to user
+Update or delete a record from the UI or API
+
+🔹 Think of It Like This:
+Flyway = "Set up the kitchen" (install shelves, drawers, appliances)
+
+JDBC = "Cook a meal" (put food in, take food out, clean the dishes)
+
+You don’t remodel the kitchen every time you want to eat — you use it.
