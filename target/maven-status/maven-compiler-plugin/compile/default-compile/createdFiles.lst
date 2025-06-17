@@ -1,2 +1,5 @@
 com\fppproject\App.class
+com\fppproject\users\Person.class
 com\fppproject\MigrationRunner.class
+com\fppproject\users\DatabaseActions.class
+com\fppproject\db\TestDatabaseActions.class

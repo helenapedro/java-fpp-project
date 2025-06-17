@@ -1,13 +1,7 @@
 package com.fppproject.users;
 
 import java.io.InputStream;
-import java.security.Permission;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -16,20 +10,19 @@ public class DatabaseActions {
      private static final String PROPERTIES_FILE = "db.properties";
 
      // Registering the Driver and Getting the Connection
-     private static Connection() throws SQLException {
+     private static Connection getConnection() throws SQLException {
           Properties props = new Properties();
           try (InputStream input = DatabaseActions.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE)) {
                props.load(input);
-
           } catch (Exception e) {
                throw new RuntimeException("❌ Could not load db.properties", e);
           }
-          
+
           String url = props.getProperty("db.url");
           String user = props.getProperty("db.user");
           String password = props.getProperty("db.password");
 
-          return DriverManager.getConnection(url, user, password)
+          return DriverManager.getConnection(url, user, password);
      }
 
      // 1. Insert a person (to be used by Swing GUI later)
@@ -37,11 +30,13 @@ public class DatabaseActions {
           String sql = "INSERT INTO person (firstname, lastname, ssn) VALUES (?, ?, ?)";
           try (Connection conn = getConnection();
                     PreparedStatement stmt = conn.prepareStatement(sql)) {
+
                stmt.setString(1, firstName);
                stmt.setString(2, lastName);
                stmt.setString(3, ssn);
                stmt.executeUpdate();
                System.out.println("✅ Inserted: " + firstName + " " + lastName);
+
           } catch (SQLException e) {
                System.out.println("❌ Insert failed.");
                e.printStackTrace();
@@ -73,5 +68,4 @@ public class DatabaseActions {
 
           return list;
      }
-
 }

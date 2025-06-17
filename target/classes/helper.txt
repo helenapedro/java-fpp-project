@@ -2,6 +2,8 @@ Use ping to Check Server Reachability:
      ping srv469.hstgr.io
 Use this command to run the programn: 
      mvn clean compile exec:java -Dexec.mainClass="com.fppproject.MigrationRunner"
+To run my test:
+     mvn clean compile exec:java -Dexec.mainClass="com.fppproject.db.TestDatabaseActions"
 
 📌 My Setup So Far:
 ✅ DB created on Hostinger
@@ -26,3 +28,10 @@ Flyway = "Set up the kitchen" (install shelves, drawers, appliances)
 JDBC = "Cook a meal" (put food in, take food out, clean the dishes)
 
 You don’t remodel the kitchen every time you want to eat — you use it.
+
+
+To avoid red squiggly lines in VS Code or IntelliJ:
+     VS Code: Install the “Lombok Annotations Support for VS Code” extension. done
+     IntelliJ: Enable annotation processing in:
+          Settings > Build, Execution, Deployment > Compiler > Annotation Processors
+→ Check “Enable annotation processing”
