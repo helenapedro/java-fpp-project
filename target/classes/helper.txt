@@ -1,0 +1,11 @@
+Use ping to Check Server Reachability:
+     ping srv469.hstgr.io
+Use this command to run the programn: 
+     mvn clean compile exec:java -Dexec.mainClass="com.fppproject.MigrationRunner"
+
+📌 My Setup So Far:
+✅ DB created on Hostinger
+✅ Flyway created the person table via V1__create_person_table.sql
+✅ I have MigrationRunner.java to apply migrations
+✅ Everything is working cleanly with db.properties
+
